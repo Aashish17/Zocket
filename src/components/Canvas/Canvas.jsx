@@ -47,25 +47,21 @@ function Canvas({ adInfo }) {
   };
 
   const drawAdImage = (imgUrl) => {
-    // Get the canvas and its 2D context
+  
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
 
-    // Set the global composite operation to 'source-atop' for masking
+   
     ctx.globalCompositeOperation = 'source-atop';
 
-    // Clear the specified area on the canvas
+  
     ctx.clearRect(56, 442, 970, 600);
 
-    // Create a new image element and set its source to the provided image URL
     const image = new Image();
     image.onload = () => {
-      // Once the image is loaded, draw it on the canvas within the specified area
       ctx.drawImage(image, 56, 440, 970, 600);
     };
-    image.src = imgUrl || adInfo.adImage; // Use the provided image URL or a default image URL
-
-    // Reset the global composite operation to default ('source-over') after drawing
+    image.src = imgUrl || adInfo.adImage; 
     ctx.globalCompositeOperation = 'source-over';
   };
 
@@ -74,18 +70,18 @@ function Canvas({ adInfo }) {
     const canvas = textcanvasRef.current;
     const ctx = canvas.getContext('2d');
 
-    // Clear the canvas
+
     const { width, height } = adInfo.image_mask;
 
     ctx.clearRect(0, 0, width, height);
 
-    // Set font style and color
+
     ctx.fillStyle = '#FFFFFF';
     ctx.font = '46px Sans-serif';
 
-    let startY = 100; // Starting y-coordinate for text
+    let startY = 100; 
 
-    // If no text is provided, use the default adText
+  
     const textToWrite = text || caption.text;
     const lines = breakTextIntoLines(textToWrite, 31,100);
     lines.forEach((line) => {
@@ -100,41 +96,33 @@ function Canvas({ adInfo }) {
     const canvas = ctacanvasRef.current;
     const ctx = canvas.getContext('2d');
 
-    // Clear the canvas
+  
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     const backgroundColor = '#000000';
     const textToWrite = text || "Shop Now";
 
-    // Break the text into lines (max 15 characters per line)
+   
     const lines = breakTextIntoLines(textToWrite, 20,15);
 
     ctx.font = '30px Sans-serif';
     const textWidth = ctx.measureText(lines[0]).width;
     const textHeight = lines.length * 30;
 
-    const boxWidth = textWidth + 48; // Add some padding
+    const boxWidth = textWidth + 48; 
     const boxHeight = textHeight + 48;
 
-    // Draw a rectangular background for the text
+   
     drawRect(100, 320, boxWidth, boxHeight, 20, backgroundColor, ctx);
 
-    let startY = 320 + (boxHeight / 2 + 8); // Calculate the starting y-coordinate
-    const startX = 100+24; // Calculate the starting x-coordinate
+    let startY = 320 + (boxHeight / 2 + 8); 
+    const startX = 100+24; 
 
-    ctx.fillStyle = '#ffffff'; // Set text color to white
+    ctx.fillStyle = '#ffffff'; 
 
-    // Draw each line of text
     lines.forEach((line) => {
       ctx.fillText(line, startX, startY);
-      startY += 30; // Move down for the next line
+      startY += 30; 
     });
-  };
-  const calculateCTAWidth = (text) => {
-    const canvas = ctacanvasRef.current;
-    const ctx = canvas.getContext('2d');
-    const lines = breakTextIntoLines(text, 20,30);
-    const longestLine = lines.reduce((a, b) => (a.length > b.length ? a : b), '');
-    return ctx.measureText(longestLine).width + 48;
   };
   return (
     <>

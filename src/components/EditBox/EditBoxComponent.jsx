@@ -4,7 +4,7 @@ import CustomBgColor from './CustomBgColor';
 import CustomAddContent from './CustomAddContent';
 
 
-function BoxComponent() {
+function EditBoxComponent() {
   return (
     <div className='flex flex-col sm:w-1/2 w-screen '>
       <h1 className='text-center text-lg sm:text-2xl font-bold mt-14'>Ad customization</h1>
@@ -25,4 +25,4 @@ function BoxComponent() {
   );
 }
 
-export default BoxComponent
+export default EditBoxComponent

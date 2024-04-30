@@ -1,5 +1,5 @@
 import './Home.css'
-import BoxComponent from '../components/EditBox/BoxComponent'
+import EditBoxComponent from '../components/EditBox/EditBoxComponent'
 import Display from '../components/Canvas/Display'
 
 function Home() {
@@ -8,7 +8,7 @@ function Home() {
         <div className='flex flex-col sm:flex-row w-screen'>
 
             <Display />
-            <BoxComponent />
+            <EditBoxComponent />
 
         </div>
     )
