@@ -13,7 +13,7 @@ function BoxComponent() {
       <div>
         <div className="flex items-center mt-5 mb-4 mx-16 ">
           <hr className="flex-grow border-t border-gray-300 " />
-          <span className="text-center text-sm sm:text-lg  text-gray-400 text-opacity-70 mx-2">Edit Content</span>
+          <span className="text-center text-sm sm:text-lg  text-gray-400 text-opacity-70 mx-2">Edit Your Content</span>
           <hr className="flex-grow border-t border-gray-300" />
         </div>
       </div>
